@@ -17,7 +17,7 @@ Default: 1
 1.05
 1.6
 
-
+   sda  
 
 
 -- 02 COLOR SYSTEM
@@ -47,6 +47,8 @@ SPACING SYSTEM (px)
 
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -54,6 +56,7 @@ body {
   line-height: 1;
   font-weight: 400;
   color: #555 #aaa;
+  overflow-x: hidden;
 }
 
 /*********************/
@@ -61,6 +64,7 @@ body {
 /*********************/
 
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,6 +72,7 @@ body {
   /*fixed height because sticky navigation*/
   height: 9.6rem;
   padding: 0 4.8rem;
+  transition: all 0.3s;
 }
 
 .logo {
@@ -80,7 +85,7 @@ body {
 
 .main-nav ul {
   display: flex;
-  gap: 3.2rem;
+  gap: 4.8rem;
   list-style-type: none;
   font-size: 1.8rem;
 }
@@ -111,6 +116,41 @@ body {
 .nav-cta:active {
   background-color: #cf711f;
   color: white;
+}
+
+/*MOBILE NAVIGATION*/
+
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #333;
+}
+
+.btn-mobile-nav [name="close-outline"] {
+  display: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 8rem;
+  background-color: rgb(255, 255, 255, 0.7);
+  padding-top: 0;
+  padding-bottom: 0;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+  z-index: 999;
+}
+.sticky .section-hero {
+  margin-top: 9.6rem;
 }
 
 /*********************/
@@ -480,26 +520,26 @@ body {
   padding: 9.6rem 0;
 }
 
-.princing-plan {
+.pricing-plan {
   border-radius: 11px;
 
   width: 75%;
 }
 
-.princing-plan--starter {
+.pricing-plan--starter {
   justify-self: end;
   border: 2px solid #fdf2e9;
   padding: 4.6rem;
 }
 
-.princing-plan--complete {
+.pricing-plan--complete {
   background-color: #fdf2e9;
   padding: 4.8rem;
   position: relative;
   overflow: hidden;
 }
 
-.princing-plan--complete::after {
+.pricing-plan--complete::after {
   content: "Best value";
   position: absolute;
   top: 6%;
